@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Overview</title>
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+    <link rel="stylesheet" type="text/css" href="map.css">
+</head>
+<body>
+
+  <div class="topnav">
+    <a class="active">Home</a>
+  </div>
+<center><h3>Virtual Map Of Red,Orange,Green Zones in Delhi NCR</h3></center>
+<center><div id="mapid" style="width: 700px; height: 500px;"></div>
+</div>
+<center>
+<script>
+
+	var mymap = L.map('mapid').setView([28.671193, 77.415075], 10);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 25,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+
+	L.marker([28.671193, 77.415075]).addTo(mymap)
+		.bindPopup("<b>Ghaziabad</b>").openPopup();
+    L.marker([28.729515, 77.77653]).addTo(mymap)
+        .bindPopup("<b>Hapur</b>").openPopup();
+    L.marker([28.392663, 77.848005]).addTo(mymap)
+        .bindPopup("<b>Bulandshahar</b>").openPopup();    
+    L.marker([28.996796, 77.711964]).addTo(mymap)
+        .bindPopup("<b>Meerut</b>").openPopup();     
+    L.marker([28.945095, 77.219789]).addTo(mymap)
+        .bindPopup("<b>Baghpat</b>").openPopup();
+    L.marker([29.003344, 77.016478]).addTo(mymap)
+        .bindPopup("<b>Sonipat</b>").openPopup();
+    L.marker([28.901561, 76.580029]).addTo(mymap)
+        .bindPopup("<b>Rohtak</b>").openPopup();
+    L.marker([29.392154, 76.976824]).addTo(mymap)
+        .bindPopup("<b>Panipat</b>").openPopup();
+    L.marker([29.471369, 77.696772]).addTo(mymap)
+        .bindPopup("<b>Muzzafarnagar</b>").openPopup();
+    L.marker([28.573131, 77.353363]).addTo(mymap)
+        .bindPopup("<b>Noida</b>").openPopup();
+
+	L.circle([28.671193, 77.415075], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+
+    L.circle([28.729515, 77.77653], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+   
+    L.circle([ 28.392663, 77.848005], 3200, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in red zone.");
+    
+    L.circle([28.996796, 77.711964], 3200, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in red zone.");
+    
+    L.circle([28.945095, 77.219789], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+
+    L.circle([29.003344, 77.016478], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+
+    L.circle([28.901561, 76.580029], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+
+    L.circle([29.392154, 76.976824], 3200, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in red zone.");
+
+    L.circle([29.471369, 77.696772], 3200, {
+		color: 'orange',
+		fillColor: '#FFA500	',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in orange zone.");
+
+    L.circle([28.573131, 77.353363], 3200, {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5
+    }).addTo(mymap).bindPopup("You are in red zone.");
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(mymap);
+}
+mymap.on('click', onMapClick);
+//Dropdown Logic
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
+
+
+
+</body>
+</html>

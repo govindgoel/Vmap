@@ -1,0 +1,19 @@
+{
+  "name": "src2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server-node": "http-server -p 8081",
+    "start": "http-server -p 8081"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  },
+  "engines": {
+    "node": "12.14.1"
+  }
+}
