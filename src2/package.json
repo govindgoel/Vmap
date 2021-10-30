@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server-node": "http-server -p 8081",
-    "start": "http-server -p 8081"
+    "server-node": "http-server -p 8080",
+    "start": "http-server -p 8080"
   },
   "author": "",
   "license": "ISC",
